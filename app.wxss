@@ -1,0 +1,28 @@
+/**app.wxss**/
+body {
+  
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+button {
+  /* 消除button默认样式 */
+  margin: 0;
+  padding: 0;
+  border: 0;  
+  background-color: transparent;
+  outline: none;    
+  color: #ebfbfb;
+}
+
+text {
+  font-size: 14px;
+}

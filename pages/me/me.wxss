@@ -1,0 +1,86 @@
+/* pages/me/me.wxss */
+
+.avator-box {
+  width: 100%;
+  height: 400rpx;
+  border: 1px solid #fff;
+}
+
+.avator-container {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 40rpx auto;
+}
+
+.avator-container image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.avator-box text {
+  display: block;
+  width: 150rpx;
+  height: 75rpx;
+  text-align: center;
+  line-height: 75rpx;
+  margin: 30rpx auto;
+  color: #333;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.login {
+  border: 2px solid #8be2dc; 
+  border-radius: 40rpx;
+}
+
+.setting-container {
+  
+}
+
+.setting {
+  width: 100%;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  padding: 0 30rpx;
+  background-color: #ebfbfb;
+  line-height: 100rpx;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #333;
+}
+
+.setting view {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 20rpx;
+}
+
+.setting:first-child {
+  position: relative;
+}
+
+.setting .select-box {
+  position: absolute;
+  top: 120rpx;
+  left: 0;
+  width: 750rpx;
+}
+
+.setting .select-box .select-one {
+  width: 750rpx;
+  height: 100rpx;
+  border-radius: 0;
+  background: #ebfbfb;
+  border-bottom: 1px solid #8be2dc;
+  text-align: center;
+}
+
+.setting .select-box .select-one:last-child {
+  border: 0;
+}
+
+

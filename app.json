@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/me/me",
+    "pages/home/home",
+    "pages/add/add",
+    "pages/add/addTip/addTip"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#8be2dc",
+    "navigationBarTitleText": "joy记账",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "账本",
+        "iconPath": "pages/img/accounts.png",
+        "selectedIconPath": "pages/img/accountsSelected.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "记账",
+        "iconPath": "pages/img/add.png",
+        "selectedIconPath": "pages/img/addSelected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "pages/img/me.png",
+        "selectedIconPath": "pages/img/meSelected.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#8be2dc",
+    "borderStyle": "black"
+  }
+}

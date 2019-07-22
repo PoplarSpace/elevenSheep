@@ -1,0 +1,113 @@
+/* pages/home/home.wxss */
+.head {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx 10rpx 20rpx;
+  border-bottom: 2rpx solid #c3c3c3;
+}
+
+.sigle-container:first-child {
+  flex: 1.3;
+}
+
+.sigle-container:first-child view {
+  font-size: 20px;
+}
+
+.sigle-container:first-child view text {
+  font-size: 16px;
+}
+
+.sigle-container {
+  flex: 1;
+  line-height: 50rpx;
+}
+
+.sigle-container view {
+  text-align: center;
+  font-size: 14px;
+}
+
+.sigle-container:first-child {
+  border-right: 2rpx solid #4f4f4f;
+}
+
+.t {
+  color: #a0a0a0;
+}
+
+.b image {
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 8rpx;
+}
+
+.account-book {
+  
+}
+
+.date {
+  height: 40rpx;
+  background-color: #ebfbfb;
+  padding: 10rpx 0;
+}
+
+.date view:first-child {
+  float: left;
+}
+
+.date view:last-child {
+  float: right;
+}
+
+.date view span {
+  margin: 0 15rpx;
+}
+
+.record {
+  /* padding: 10rpx 20rpx; */
+  padding: 10rpx 0;
+}
+
+.sigle-record {
+  height: 76rpx;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+}
+
+.sigle-record image,
+.sigle-record view {
+  display: inline-block;
+}
+
+.sigle-record image {
+  width: 50rpx;
+  height: 60rpx;
+  padding: 0 20rpx;
+  vertical-align: middle;
+}
+
+.sigle-record view {
+  width: 637rpx;
+  padding-right: 25rpx;
+  border-bottom: 1px solid #cecece;
+  vertical-align: middle;
+}
+
+.record:last-child .sigle-record view {
+  border: 0;
+}
+
+.sigle-record view span:first-child {
+  float: left;
+}
+
+.sigle-record view span:last-child {
+  float: right;
+}
+
+.sigle-record view span text {
+  line-height: 76rpx;
+}

@@ -1,0 +1,56 @@
+<!--pages/add/add.wxml-->
+<view class="inAndOut">
+  <button bindtap='oBtn' class="out {{isActive?'active':''}}">支出</button>
+  <button bindtap='iBtn' class="in {{isActive?'':'active'}}">收入</button>
+</view>
+
+<scroll-view scroll-y="true" class="scroll-container">
+  <view class="tipBox">
+    <block wx:for="{{isActive?outData:inData}}" wx:item="item" wx:key="index">
+      <text class="tip {{cIndex==index?'onC':''}}" data-index="{{index}}" data-content="{{item}}" bindtap='cTip' bindlongtap='removeType'>{{item}}</text>
+    </block>
+    <text class="addTip" bindtap='addTips'>+</text>
+  </view>
+</scroll-view>
+
+<!-- <view class="tipBox">
+  <block wx:if="{{isActive}}" wx:for="{{outData}}" wx:item="item" wx:key="index">
+    <button class="tip">{{item}}</button>
+  </block>
+</view>
+
+<view class="tipBox">
+  <block wx:if="{{!isActive}}" wx:for="{{inData}}" wx:item="item" wx:key="index">
+    <button class="tip">{{item}}</button>
+  </block>
+</view> -->
+ 
+<view class="bottomContainer">
+  <form bindsubmit="formSubmit">
+
+    <view class='recordBox'>
+      <view class="time">
+        <picker mode="date" bindchange='changeDate'>
+          <input disabled='true' name="recordDate" value='{{recordDate}}'></input>
+        </picker>
+      </view>
+      <view class="money">
+        <text class='symbol'>￥</text>
+        <input name="recordMoney" type='digit' placeholder='0.00' placeholder-style='color:red'></input>
+      </view>
+    </view>
+
+    <view class='remark'>
+      <input name="recordRemark" type="text" placeholder='添加备注'></input>
+    </view>
+
+    <view class="sure">
+      <button form-type="submit">确认</button>
+    </view>
+
+  </form>
+
+  <view class="sure">
+    <button bindtap='clear'>清除本地缓存</button>
+  </view>
+</view>

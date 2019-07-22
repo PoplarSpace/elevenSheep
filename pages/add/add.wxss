@@ -1,0 +1,139 @@
+/* pages/add/add.wxss */
+text {
+  color: #ebfbfb;
+  font-size: 18px;
+}
+
+.inAndOut {
+  height: 80rpx;
+  background-color: #8be2dc;
+  text-align: center;
+  padding: 20rpx;
+}
+
+.inAndOut button {
+  width: 300rpx;
+  height: 80rpx;
+  outline: 0;
+  border: 1px solid #ebfbfb;
+  display: inline-block;
+  background-color: #8be2dc;
+  margin: 0 2rpx;
+  line-height: 80rpx;
+  /* font-size: 12px; */
+  /* font-weight: 700; */
+  color: #ebfbfb;
+}
+
+.inAndOut button:first-child {
+  border-radius: 15rpx 0 0 15rpx;
+}
+
+.inAndOut button:last-child {
+  border-radius: 0 15rpx 15rpx 0;
+}
+
+.inAndOut .active {
+  background-color: #ebfbfb;
+  color: #8be2dc;
+}
+
+.scroll-container {
+  height: 590rpx;
+}
+
+.tipBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 40rpx;
+  position: absolute;
+}
+
+.tip {
+  /* float:left; */
+  /* width: fit-content; */
+  /* height: 80rpx; */
+  border-radius: 20rpx;
+  background-color: #8be2dc;
+  text-align: center;
+  /* line-height: 80rpx; */
+  margin: 10rpx;
+  /* font-size: 12px; */
+  padding: 20rpx;
+}
+
+.addTip {
+  background-color: #8be2dc;
+  text-align: center;
+  margin: 10rpx;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+
+.onC {
+  background-color: #ebfbfb;
+  color: #8be2dc;
+}
+
+.bottomContainer {
+  position: absolute;
+  bottom: 0;
+}
+
+.recordBox {
+  display: flex;
+  width: 750rpx;
+  height: 78rpx;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 10rpx 30rpx;
+}
+
+.recordBox view {
+  flex: 1;
+}
+
+.recordBox view input {
+  height: 78rpx;
+  line-height: 78rpx;
+}
+
+.money {
+  /* background-color: #eee; */
+  color: red;
+  display: flex;
+}
+
+.money .symbol {
+  height: 78rpx;
+  line-height: 78rpx;
+  color: #333;
+}
+
+.remark {
+  width: 750rpx;
+  margin: 10rpx 0;
+  padding: 0 30rpx;
+  background-color:#eee;
+}
+
+.remark input {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.sure {
+  height: 110rpx;
+  margin: 50rpx;
+}
+
+.sure button {
+  width: 230rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  margin: 0 auto;
+  background-color: #8be2dc;
+  border-radius: 20rpx;
+}

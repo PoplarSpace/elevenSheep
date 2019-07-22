@@ -1,0 +1,28 @@
+<!--pages/me/me.wxml-->
+<view class='avator-box'>
+  <view class='avator-container'>
+    <image class='avator' src="/pages/img/avator.png"></image> 
+  </view>
+    <text wx:if="{{!nameShow}}" class='login'>登录</text>
+    <text wx:if="{{nameShow}}" class='user-name'>啦啦啦</text>
+</view>
+
+<view class="setting-container">
+  <view class='setting' bindtap=''>
+    <view></view>
+    <text>设置主题颜色</text>
+    <view wx:if="{{selected}}" class="select-box">
+      <view class="select-one" bindtap='mySelected'>红色</view>
+      <view class="select-one" bindtap='mySelected'>蓝色</view>
+      <view class="select-one" bindtap='mySelected'>黄色</view>
+    </view>
+  </view>
+  <view class='setting'>
+    <view></view>
+    <text>关于joy记账</text>
+  </view>
+  <view class='setting'>
+    <view></view>
+    <text>退出登录</text>
+  </view>
+</view>
