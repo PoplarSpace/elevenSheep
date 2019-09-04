@@ -1,12 +1,12 @@
 /* pages/add/add.wxss */
 text {
-  color: #ebfbfb;
+  /* color: #ebfbfb; */
   font-size: 18px;
 }
 
 .inAndOut {
   height: 80rpx;
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
   text-align: center;
   padding: 20rpx;
 }
@@ -15,14 +15,14 @@ text {
   width: 300rpx;
   height: 80rpx;
   outline: 0;
-  border: 1px solid #ebfbfb;
+  /* border: 1px solid #ebfbfb; */
   display: inline-block;
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
   margin: 0 2rpx;
   line-height: 80rpx;
   /* font-size: 12px; */
   /* font-weight: 700; */
-  color: #ebfbfb;
+  /* color: #ebfbfb; */
 }
 
 .inAndOut button:first-child {
@@ -39,24 +39,24 @@ text {
 }
 
 .scroll-container {
-  height: 590rpx;
+  height: 540rpx;
 }
 
 .tipBox {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 40rpx;
+  justify-content: center; */
+  padding: 0 25rpx;
   position: absolute;
 }
 
 .tip {
-  /* float:left; */
+  float:left;
   /* width: fit-content; */
   /* height: 80rpx; */
   border-radius: 20rpx;
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
   text-align: center;
   /* line-height: 80rpx; */
   margin: 10rpx;
@@ -65,10 +65,13 @@ text {
 }
 
 .addTip {
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
+  float: left;
   text-align: center;
+  width: 120rpx;
+  height: 88rpx;
+  line-height: 88rpx;
   margin: 10rpx;
-  padding: 20rpx;
   border-radius: 20rpx;
 }
 
@@ -116,7 +119,7 @@ text {
   width: 750rpx;
   margin: 10rpx 0;
   padding: 0 30rpx;
-  background-color:#eee;
+  /* background-color:#eee; */
 }
 
 .remark input {
@@ -125,8 +128,9 @@ text {
 }
 
 .sure {
+  width: 750rpx;
   height: 110rpx;
-  margin: 50rpx;
+  margin: 50rpx 0;
 }
 
 .sure button {
@@ -134,6 +138,6 @@ text {
   height: 110rpx;
   line-height: 110rpx;
   margin: 0 auto;
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
   border-radius: 20rpx;
 }

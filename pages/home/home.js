@@ -15,9 +15,12 @@ Page({
     mExpend:0,
     mSurplus:0,
 
-    infor: []
+    infor: [],
+    // 主题色
+    first: app.globalData.color.first,
+    second: app.globalData.color.second
     
-    // infor: [
+  // infor: [
     //   {
     //     date: '07-15',
     //     week: '一',
@@ -72,7 +75,7 @@ Page({
     //       }
     //     ]
     //   },
-    // ],
+  // ],
 
   },
 
@@ -87,7 +90,7 @@ Page({
     })
 
     var data = wx.getStorageSync("recordJson");
-    console.log("dateChange缓存中的数据是：",data);
+    // console.log("dateChange缓存中的数据是：",data);
     this.processData(data);
     this.caclMoney();
 
@@ -176,6 +179,7 @@ Page({
   },
 
   // 从缓存中取出用户添加的数据，并得到对应年月的数据
+  // 并对日期进行排序
   getData:function(data,year,month){
     for(var i=0;i<data.length;i++){
       if (Number(data[i].value) == Number(year)){
@@ -240,6 +244,18 @@ Page({
       
       // 判断 所选月的数据是否为空
       if(recordData){
+
+        // 将所选月的数据按照日期从大到小排列出来
+        for (var i = 0; i < recordData.length; i++) {
+          for (var j = i+1; j < recordData.length;j++){
+            if (recordData[i].value < recordData[j].value) {
+              var a = recordData[i];
+              recordData[i] = recordData[j];
+              recordData[j] = a;
+            }
+          }
+        }
+
         // 循环遍历 当前显示月 的 每一天
         for (var i = 0; i < recordData.length; i++) {
           // 临时存储"每一天"的对象
@@ -291,45 +307,60 @@ Page({
           //   num = this.data.infor[i].num;
           // }
 
-          // 循环遍历 这一天 的所有记录
-          for (var j = 0; j < recordData[i].data.length; j++) {
-            // 临时存储 “每一条记录” 的对象
-            var numObj = {
-              content: '',
-              pay: 0,
-              gain: 0
-            };
-            var pay = 0;
-            var gain = 0;
-            // 判断是 收入 还是 支出
-            if (recordData[i].data[j].isActive) {
-              pay = recordData[i].data[j].recordMoney;
-            }
-            else {
-              gain = recordData[i].data[j].recordMoney;
-            }
-            // 收入/支出 的 类型
-            var content = recordData[i].data[j].recordContent + "(" + recordData[i].data[j].recordRemark + ")";
-            // console.log(content);
-            // console.log(num);
+          // console.log(recordData[i].data);
+          if(recordData[i].data.length){
+            // 循环遍历 这一天 的所有记录
+            for (var j = 0; j < recordData[i].data.length; j++) {
+              // 临时存储 “每一条记录” 的对象
+              var numObj = {
+                content: '',
+                pay: 0,
+                gain: 0
+              };
+              var pay = 0;
+              var gain = 0;
+              // 判断是 收入 还是 支出
+              if (recordData[i].data[j].isActive) {
+                pay = recordData[i].data[j].recordMoney;
+              }
+              else {
+                gain = recordData[i].data[j].recordMoney;
+              }
+              // 收入/支出 的 类型 和 备注
+              if (recordData[i].data[j].recordRemark) {
+                var content = recordData[i].data[j].recordContent + "(" + recordData[i].data[j].recordRemark + ")";
+              }
+              else {
+                var content = recordData[i].data[j].recordContent;
+              }
+              // console.log(content);
+              // console.log(num);
 
-            // 把得到的 某一天 的 某条数据 push 到 num 数组中
-            numObj.content = content;
-            // console.log(content);
-            numObj.gain = gain;
-            numObj.pay = pay;
-            num.push(numObj);
-            // console.log(num);
+              // 把得到的 某一天 的 某条数据 push 到 num 数组中
+              numObj.content = content;
+              // console.log(content);
+              numObj.gain = gain;
+              numObj.pay = pay;
+              num.push(numObj);
+              // console.log(num);
 
+            }
+
+            // 把得到的 当前月 的 所有天 的 所有数据 push 到 infor 数组中
+            inforObj.date = date;
+            inforObj.week = week;
+            inforObj.num = num;
+            infor.push(inforObj);
           }
+          
 
           // console.log(num);
 
-          // 把得到的 当前月 的 所有天 的 所有数据 push 到 infor 数组中
-          inforObj.date = date;
-          inforObj.week = week;
-          inforObj.num = num;
-          infor.push(inforObj);
+          // // 把得到的 当前月 的 所有天 的 所有数据 push 到 infor 数组中
+          // inforObj.date = date;
+          // inforObj.week = week;
+          // inforObj.num = num;
+          // infor.push(inforObj);
 
         }
       }
@@ -345,6 +376,48 @@ Page({
     }
   },
 
+  // 长按删除某条记录
+  delRecord: function (event) {
+    // console.log(event);
+    // console.log(this.data);
+    var that = this;
+    wx.showModal({
+      title: '删除记录',
+      content: '确定删除"' + that.data.infor[event.currentTarget.dataset.dayidx].date+'"的"'+ that.data.infor[event.currentTarget.dataset.dayidx].num[event.currentTarget.dataset.recidx].content +'"这条记录吗？',
+      success(res) {
+        if (res.confirm) {
+          var date = that.data.infor[event.currentTarget.dataset.dayidx].date;
+          var year = that.data.year;
+          var month = that.data.month;
+          var day = date.split("-")[1];
+          var record = that.data.infor[event.currentTarget.dataset.dayidx].num[event.currentTarget.dataset.recidx];
+          var recordData = wx.getStorageSync("recordJson");
+          for (var i = 0; i < recordData.length;i++){
+            if (Number(recordData[i].value) == Number(year)){
+              for(var j = 0;j<recordData[i].data.length;j++){
+                if (Number(recordData[i].data[j].value) == Number(month)){
+                  for (var k = 0; k < recordData[i].data[j].data.length;k++){
+                    if (Number(recordData[i].data[j].data[k].value) == Number(day)){
+                      // splice(index,len,[item])    注释：该方法会改变原始数组。
+                      // index:数组开始下标        len: 替换/删除的长度       item:替换的值，删除操作的话 item为空
+                      recordData[i].data[j].data[k].data.splice(event.currentTarget.dataset.recidx, 1);
+                    }
+                  }
+                }
+              }
+            }
+          }
+          
+          wx.setStorageSync("recordJson", recordData);
+          wx.showToast({
+            title: '删除成功',
+          })
+          that.onShow();
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -357,6 +430,44 @@ Page({
    */
   onShow: function () {
 
+    // 动态设置导航栏颜色
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: app.globalData.color.first,
+      animation: {
+        duration: 400,
+        timingFunc: 'linear'
+      }
+    })
+
+    // 设置页面其他地方为用户选择的主题色
+    this.setData({
+      first: app.globalData.color.first,
+      second: app.globalData.color.second
+    })
+
+    // 动态设置tabBar上的图标
+    wx.setTabBarItem({
+      index: 0,
+      selectedIconPath: app.globalData.color.iconSelect0
+    })
+    wx.setTabBarItem({
+      index: 1,
+      selectedIconPath: app.globalData.color.iconSelect1
+    })
+    wx.setTabBarItem({
+      index: 2,
+      selectedIconPath: app.globalData.color.iconSelect2
+    })
+
+    // 动态设置tabBar上的字体颜色
+    wx.setTabBarStyle({
+      color: '#333',
+      selectedColor: app.globalData.color.first,
+      borderStyle: 'black'
+    })
+
+    // 每次加载页面时，动态设置页面数据
     var data = wx.getStorageSync("recordJson");
     // console.log("onshow缓存中的数据是：" ,data);
 

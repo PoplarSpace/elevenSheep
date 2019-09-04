@@ -1,15 +1,15 @@
 <!--pages/add/add.wxml-->
-<view class="inAndOut">
-  <button bindtap='oBtn' class="out {{isActive?'active':''}}">支出</button>
-  <button bindtap='iBtn' class="in {{isActive?'':'active'}}">收入</button>
+<view class="inAndOut" style="background-color:{{first}}">
+  <button style="background-color: {{isActive?second:first}};color:{{isActive?first:second}};border:1px solid {{second}}" bindtap='oBtn' class="out">支出</button>
+  <button style="background-color: {{isActive?first:second}};color:{{isActive?second:first}};border:1px solid {{second}}" bindtap='iBtn' class="in">收入</button>
 </view>
 
 <scroll-view scroll-y="true" class="scroll-container">
   <view class="tipBox">
     <block wx:for="{{isActive?outData:inData}}" wx:item="item" wx:key="index">
-      <text class="tip {{cIndex==index?'onC':''}}" data-index="{{index}}" data-content="{{item}}" bindtap='cTip' bindlongtap='removeType'>{{item}}</text>
+      <text style="color:{{cIndex==index?first:second}};background-color:{{cIndex==index?second:first}};" class="tip" data-index="{{index}}" data-content="{{item}}" bindtap='cTip' bindlongtap='removeType'>{{item}}</text>
     </block>
-    <text class="addTip" bindtap='addTips'>+</text>
+    <text style="background-color:{{first}};color:{{second}}" class="addTip" bindtap='addTips'>+</text>
   </view>
 </scroll-view>
 
@@ -40,17 +40,17 @@
       </view>
     </view>
 
-    <view class='remark'>
+    <view class='remark' style="background-color:{{second}}">
       <input name="recordRemark" type="text" placeholder='添加备注'></input>
     </view>
 
     <view class="sure">
-      <button form-type="submit">确认</button>
+      <button style="background-color:{{first}};color:{{second}}" form-type="submit">确认</button>
     </view>
 
   </form>
 
-  <view class="sure">
-    <button bindtap='clear'>清除本地缓存</button>
-  </view>
+  <!-- <view class="sure">
+    <button style="background-color:{{first}};color:{{second}}" bindtap='clear'>清除账目</button>
+  </view> -->
 </view>

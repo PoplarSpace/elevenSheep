@@ -49,7 +49,7 @@
 
 .date {
   height: 40rpx;
-  background-color: #ebfbfb;
+  /* background-color: #ebfbfb; */
   padding: 10rpx 0;
 }
 

@@ -1,27 +1,42 @@
 <!--pages/me/me.wxml-->
 <view class='avator-box'>
   <view class='avator-container'>
-    <image class='avator' src="/pages/img/avator.png"></image> 
+    <image wx:if="{{!nameShow}}" class='avator' src="/pages/img/avator.png"></image>
+    <image wx:if="{{nameShow}}" class='avator' src="{{userInfo.avatarUrl}}"></image> 
   </view>
-    <text wx:if="{{!nameShow}}" class='login'>登录</text>
-    <text wx:if="{{nameShow}}" class='user-name'>啦啦啦</text>
+  <view class="name-container">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" style='border: 2px solid {{first}}' wx:if="{{!nameShow}}" class='login' bindtap='loginInTap'>登录</button>
+    <text wx:if="{{nameShow}}" class='user-name'>{{userInfo.nickName}}欢迎你~</text>
+  </view>
 </view>
 
 <view class="setting-container">
-  <view class='setting' bindtap=''>
+  <view class='setting' style="background-color:{{second}}" bindtap='selectColor'>
     <view></view>
-    <text>设置主题颜色</text>
+    <text>设置主题颜色{{settingColor}}</text>
     <view wx:if="{{selected}}" class="select-box">
-      <view class="select-one" bindtap='mySelected'>红色</view>
-      <view class="select-one" bindtap='mySelected'>蓝色</view>
-      <view class="select-one" bindtap='mySelected'>黄色</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='默认'>默认</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='千纸鹤'>千纸鹤</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='南极星'>南极星</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='落樱粉'>落樱粉</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='清新绿'>清新绿</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='温暖橙'>温暖橙</view>
     </view>
   </view>
-  <view class='setting'>
+  
+  <view bindtap='clear' class='setting' style="background-color:{{second}}">
+    <view></view>
+    <text>清除账目</text>
+  </view>
+  <view bindtap='showJoy' class='setting' style="background-color:{{second}}">
     <view></view>
     <text>关于joy记账</text>
   </view>
-  <view class='setting'>
+  <view class='setting' style="background-color:{{second}}">
+    <view></view>
+    <text>反馈与建议</text>
+  </view>
+  <view bindtap='loginOutTap' class='setting' style="background-color:{{second}}">
     <view></view>
     <text>退出登录</text>
   </view>

@@ -9,6 +9,9 @@ Page({
   data: {
     lock:false,
     isActive:true,
+    // 主题色
+    first: app.globalData.color.first,
+    second: app.globalData.color.second,
     outData:[],
     inData: [],
     recordDate:"",
@@ -369,7 +372,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 动态设置导航栏颜色
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: app.globalData.color.first,
+      animation: {
+        duration: 400,
+        timingFunc: 'linear'
+      }
+    })
 
+    // 设置页面其他地方为用户选择的主题色
+    this.setData({
+      first: app.globalData.color.first,
+      second: app.globalData.color.second
+    })
   },
 
   /**

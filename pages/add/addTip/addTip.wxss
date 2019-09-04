@@ -1,7 +1,7 @@
 /* pages/add/addTip/addTip.wxss */
 .inAndOut {
   height: 80rpx;
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
   text-align: center;
   padding: 20rpx;
 }
@@ -10,9 +10,9 @@
   width: 300rpx;
   height: 80rpx;
   outline: 0;
-  border: 1px solid #ebfbfb;
+  /* border: 1px solid #ebfbfb; */
   display: inline-block;
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
   margin: 0 2rpx;
   line-height: 80rpx;
   /* font-size: 12px; */
@@ -34,7 +34,7 @@
 }
 
 .in-container input {
-  background-color: #eee;
+  /* background-color: #eee; */
   padding: 0 30rpx;
   height: 100rpx;
   line-height: 100rpx;
@@ -50,6 +50,6 @@
   height: 110rpx;
   line-height: 110rpx;
   margin: 0 auto;
-  background-color: #8be2dc;
+  /* background-color: #8be2dc; */
   border-radius: 20rpx;
 }

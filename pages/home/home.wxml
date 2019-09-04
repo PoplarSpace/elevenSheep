@@ -24,7 +24,7 @@
 </view>
 <block wx:for="{{infor}}" wx:key="index" wx:for-index="idx" wx:for-item="item">
   <view class="account-book">
-    <view class="date">
+    <view class="date" style="background-color:{{second}}">
       <view>
         <span>
           <text>{{item.date}}</text>
@@ -46,7 +46,7 @@
       </view>
     </view>
     <block wx:for="{{item.num}}" wx:key="index" wx:for-index="numIdx" wx:for-item="numItem">
-      <view class="record">
+      <view class="record" data-recIdx='{{numIdx}}' data-dayIdx='{{idx}}' bindlongtap='delRecord'>
         <view class='sigle-record'>
           <image src="/pages/img/ZB.png"></image>
           <view>

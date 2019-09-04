@@ -1,16 +1,16 @@
 <!--pages/add/addTip/addTip.wxml-->
-<view class="inAndOut">
-  <button bindtap='oBtn' class="out {{isActive?'active':''}}">支出</button>
-  <button bindtap='iBtn' class="in {{isActive?'':'active'}}">收入</button>
+<view class="inAndOut" style="background-color:{{first}}">
+  <button style="background-color: {{isActive?second:first}};color:{{isActive?first:second}};border:1px solid {{second}}" bindtap='oBtn' class="out">支出</button>
+  <button style="background-color: {{isActive?first:second}};color:{{isActive?second:first}};border:1px solid {{second}}" bindtap='iBtn' class="in">收入</button>
 </view>
 
 <view class="addtips">
   <form bindsubmit='formSubmit'>
     <view class="in-container">
-      <input name="type" placeholder='添加类别（15个字以内）'></input>
+      <input style="background-color:{{second}}" name="type" placeholder='添加类别（15个字以内）'></input>
     </view>
     <view class="add-container">
-      <button form-type="submit">添加</button>
+      <button style="background-color:{{first}};color:{{second}}" form-type="submit">添加</button>
     </view>
   </form>
 </view>

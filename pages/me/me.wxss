@@ -15,14 +15,21 @@
 .avator-container image {
   width: 200rpx;
   height: 200rpx;
+  border-radius: 50%;
+  box-shadow: 10rpx 10rpx 20rpx #aaa;
 }
 
-.avator-box text {
+.name-container {
+  width: 100%;
+}
+
+.name-container text {
   display: block;
-  width: 150rpx;
+  width: fit-content;
   height: 75rpx;
   text-align: center;
   line-height: 75rpx;
+  padding: 0 30rpx;
   margin: 30rpx auto;
   color: #333;
   font-size: 16px;
@@ -30,12 +37,24 @@
 }
 
 .login {
-  border: 2px solid #8be2dc; 
+  /* border: 2px solid #8be2dc;  */
   border-radius: 40rpx;
+  display: block;
+  width: fit-content;
+  height: 75rpx;
+  text-align: center;
+  line-height: 75rpx;
+  padding: 0 30rpx;
+  margin: 30rpx auto;
+  color: #333;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .setting-container {
-  
+  /* position: absolute;
+  bottom: 0; */
+  width: 750rpx;
 }
 
 .setting {
@@ -43,10 +62,10 @@
   height: 100rpx;
   margin-bottom: 20rpx;
   padding: 0 30rpx;
-  background-color: #ebfbfb;
+  /* background-color: #ebfbfb; */
   line-height: 100rpx;
   font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   color: #333;
 }
 
@@ -68,14 +87,17 @@
   top: 120rpx;
   left: 0;
   width: 750rpx;
+  height: fit-content;
+  z-index: 1;
 }
 
 .setting .select-box .select-one {
   width: 750rpx;
   height: 100rpx;
+  line-height: 100rpx;
   border-radius: 0;
-  background: #ebfbfb;
-  border-bottom: 1px solid #8be2dc;
+  /* background-color: #ebfbfb;
+  border-bottom: 1px solid #8be2dc; */
   text-align: center;
 }
 
