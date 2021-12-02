@@ -1,0 +1,45 @@
+<!-- page/wishList.wxss -->
+<button class="adding" style="background-color: {{first}};">+ 新建心愿</button>
+
+<view class="doing">
+  <image src="../img/doing.png" style="width:80rpx; height:80rpx;"></image>
+  <text>进行中</text>
+  <view class="doing_part" style="border:5rpx solid {{first}}">
+
+    <view class="doing_tip" style="background-color: {{second}};">待实现</view>
+    <view class="doingPart">
+      <image src="../img/dress.png" style="width: 100rpx; height: 100rpx;" class="dress"></image>
+      <view class="doingPartText">
+        <text>买一条新裙子</text>
+        <text>￥ 230</text>
+      </view>
+
+    </view>
+    <view class="doing_bottom">
+    <view style="background-color: {{second}};"></view>
+    <button style="background-color: #ee3f4d;">
+      已实现
+    </button>
+    </view>
+    
+  </view>
+</view>
+
+<view class="ending">
+  <image src="../img/ending.png" style="width:80rpx; height:80rpx;"></image>
+  <text>已完成</text>
+  <view class="ending_part" style="border:5rpx solid {{first}}">
+    <view class="doing_tip" style="background-color: {{second}};">已实现</view>
+    <view class="doingPart">
+      <image src="../img/photo.png" style="width: 100rpx; height: 100rpx;" class="dress"></image>
+      <view class="doingPartText">
+        <text>买一个摄像机</text>
+        <text>￥ 1400</text>
+      </view>
+    </view>
+    <view class="doing_bottom">
+    <view style="background-color: {{second}};"></view>
+    <image src="../img/finished.png" style="height: 50px; width: 50px;"></image>
+    </view>
+  </view>
+</view>

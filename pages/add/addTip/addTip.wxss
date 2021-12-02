@@ -1,40 +1,11 @@
 /* pages/add/addTip/addTip.wxss */
 .inAndOut {
   height: 80rpx;
-  /* background-color: #8be2dc; */
   text-align: center;
   padding: 20rpx;
 }
 
-.inAndOut button {
-  width: 300rpx;
-  height: 80rpx;
-  outline: 0;
-  /* border: 1px solid #ebfbfb; */
-  display: inline-block;
-  /* background-color: #8be2dc; */
-  margin: 0 2rpx;
-  line-height: 80rpx;
-  /* font-size: 12px; */
-  /* font-weight: 700; */
-  color: #ebfbfb;
-}
-
-.inAndOut button:first-child {
-  border-radius: 15rpx 0 0 15rpx;
-}
-
-.inAndOut button:last-child {
-  border-radius: 0 15rpx 15rpx 0;
-}
-
-.inAndOut .active {
-  background-color: #ebfbfb;
-  color: #8be2dc;
-}
-
 .in-container input {
-  /* background-color: #eee; */
   padding: 0 30rpx;
   height: 100rpx;
   line-height: 100rpx;
@@ -50,6 +21,8 @@
   height: 110rpx;
   line-height: 110rpx;
   margin: 0 auto;
-  /* background-color: #8be2dc; */
   border-radius: 20rpx;
+}
+.aTip{
+  color: darkgrey;
 }

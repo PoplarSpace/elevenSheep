@@ -1,28 +1,30 @@
 /* pages/add/add.wxss */
 text {
-  /* color: #ebfbfb; */
   font-size: 18px;
 }
 
-.inAndOut {
-  height: 80rpx;
-  /* background-color: #8be2dc; */
-  text-align: center;
-  padding: 20rpx;
+.addImage{
+  height: 300rpx;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 40rpx;
+  border-radius: 20rpx;
 }
+
+.addImage1{
+  padding-top: 65rpx;
+  padding-left: 120rpx;
+}
+
+
 
 .inAndOut button {
   width: 300rpx;
   height: 80rpx;
   outline: 0;
-  /* border: 1px solid #ebfbfb; */
   display: inline-block;
-  /* background-color: #8be2dc; */
   margin: 0 2rpx;
   line-height: 80rpx;
-  /* font-size: 12px; */
-  /* font-weight: 700; */
-  /* color: #ebfbfb; */
 }
 
 .inAndOut button:first-child {
@@ -43,29 +45,19 @@ text {
 }
 
 .tipBox {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center; */
   padding: 0 25rpx;
   position: absolute;
 }
 
 .tip {
   float:left;
-  /* width: fit-content; */
-  /* height: 80rpx; */
   border-radius: 20rpx;
-  /* background-color: #8be2dc; */
   text-align: center;
-  /* line-height: 80rpx; */
   margin: 10rpx;
-  /* font-size: 12px; */
   padding: 20rpx;
 }
 
 .addTip {
-  /* background-color: #8be2dc; */
   float: left;
   text-align: center;
   width: 120rpx;
@@ -76,7 +68,6 @@ text {
 }
 
 .onC {
-  background-color: #ebfbfb;
   color: #8be2dc;
 }
 
@@ -87,10 +78,8 @@ text {
 
 .recordBox {
   display: flex;
-  width: 750rpx;
+  width: 600rpx;
   height: 78rpx;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
   padding: 10rpx 30rpx;
 }
 
@@ -104,7 +93,6 @@ text {
 }
 
 .money {
-  /* background-color: #eee; */
   color: red;
   display: flex;
 }
@@ -116,10 +104,11 @@ text {
 }
 
 .remark {
-  width: 750rpx;
+  width: 600rpx;
   margin: 10rpx 0;
   padding: 0 30rpx;
-  /* background-color:#eee; */
+  background-color:white;
+  border-bottom: 1px solid #000;
 }
 
 .remark input {
@@ -138,6 +127,5 @@ text {
   height: 110rpx;
   line-height: 110rpx;
   margin: 0 auto;
-  /* background-color: #8be2dc; */
   border-radius: 20rpx;
 }

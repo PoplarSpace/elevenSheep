@@ -15,46 +15,60 @@ Page({
     settingColor: app.globalData.color.str,
     color:{
       def:{
-        first: "#8be2dc",
-        second: "#ebfbfb",
-        iconSelect0:"pages/img/accountsSelected.png",
-        iconSelect1:"pages/img/addSelected.png",
-        iconSelect2:"pages/img/meSelected.png"
+        first: "#12a182",
+        second: "#c6dfc8",
+        iconSelect0: "pages/img/绿/绿主页2.png",
+        iconSelect1: "pages/img/绿/绿礼物2.png",
+        iconSelect2: "pages/img/绿/绿添加2.png",
+        iconSelect3: "pages/img/绿/绿社区2.png",
+        iconSelect4: "pages/img/绿/绿我的2.png",
       },
       red:{
-        first: "#f82e2e",
+        first: "#ee3f4d",
         second: "#ffe3e3",
-        iconSelect0: "pages/img/accountsRed.png",
-        iconSelect1: "pages/img/addRed.png",
-        iconSelect2: "pages/img/meRed.png"
-      },
-      green: {
-        first: "#93fabc",
-        second: "#e9fff2",
-        iconSelect0: "pages/img/accountsGreen.png",
-        iconSelect1: "pages/img/addGreen.png",
-        iconSelect2: "pages/img/meGreen.png"
-      },
-      yellow: {
-        first: "#ffd0a0",
-        second: "#feffd8",
-        iconSelect0: "pages/img/accountsYellow.png",
-        iconSelect1: "pages/img/addYellow.png",
-        iconSelect2: "pages/img/meYellow.png"
+        iconSelect0: "pages/img/红/红主页2.png",
+        iconSelect1: "pages/img/红/红礼物2.png",
+        iconSelect2: "pages/img/红/红添加2.png",
+        iconSelect3: "pages/img/红/红社区2.png",
+        iconSelect4: "pages/img/红/红我的2.png",
       },
       blue: {
         first: "#afdcff",
         second: "#f4f9fd",
-        iconSelect0: "pages/img/accountsBlue.png",
-        iconSelect1: "pages/img/addBlue.png",
-        iconSelect2: "pages/img/meBlue.png"
+        iconSelect0: "pages/img/蓝/蓝主页2.png",
+        iconSelect1: "pages/img/蓝/蓝礼物2.png",
+        iconSelect2: "pages/img/蓝/蓝添加2.png",
+        iconSelect3: "./pages/img/蓝/蓝社区2.png",
+        iconSelect4: "./pages/img/蓝/蓝我的2.png",
       },
       pink: {
         first: "#ffcec0",
         second: "#fff4f0",
-        iconSelect0: "pages/img/accountsPink.png",
-        iconSelect1: "pages/img/addPink.png",
-        iconSelect2: "pages/img/mePink.png"
+        iconSelect0: "pages/img/粉/粉主页2.png",
+        iconSelect1: "pages/img/粉/粉礼物2.png",
+        iconSelect2: "pages/img/粉/粉添加2.png",
+        iconSelect3: "./pages/img/粉/粉社区2.png",
+        iconSelect4: "./pages/img/粉/粉我的2.png",
+      },
+      cyan: {
+        first: "#93fabc",
+        second: "#e9fff2",
+        
+        iconSelect0: "pages/img/绿/绿主页2.png",
+        iconSelect1: "pages/img/绿/绿礼物2.png",
+        iconSelect2: "pages/img/绿/绿添加2.png",
+        iconSelect3: "./pages/img/绿/绿社区2.png",
+        iconSelect4: "./pages/img/绿/绿我的2.png",
+      },
+      orange: {
+        first: "#ffd0a0",
+        second: "#feffd8",
+        
+        iconSelect0: "pages/img/粉/粉主页2.png",
+        iconSelect1: "pages/img/粉/粉礼物2.png",
+        iconSelect2: "pages/img/粉/粉添加2.png",
+        iconSelect3: "./pages/img/粉/粉社区2.png",
+        iconSelect4: "./pages/img/粉/粉我的2.png",
       }
     }
   },
@@ -81,11 +95,9 @@ Page({
     })
     // 获取用户信息
     wx.getSetting({
+      desc:'展示用户信息',
       success(res) {
-        // console.log(1);
-        // console.log(res.authSetting['scope.userInfo']);
         if (res.authSetting['scope.userInfo']) {
-          // console.log(2);
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success(res) {
@@ -113,15 +125,6 @@ Page({
       }
     })
 
-    // wx.showModal({
-    //   title: '登录',
-    //   content: '允许“joy记账”小程序获取您的微信信息？',
-    //   success(res) {
-    //     if (res.confirm) {
-          
-    //     }
-    //   }
-    // })
     
   },
 
@@ -185,6 +188,8 @@ Page({
     app.globalData.color.iconSelect0 = val.iconSelect0;
     app.globalData.color.iconSelect1 = val.iconSelect1;
     app.globalData.color.iconSelect2 = val.iconSelect2;
+    app.globalData.color.iconSelect3 = val.iconSelect3;
+    app.globalData.color.iconSelect4 = val.iconSelect4;
     app.globalData.color.str = str;
     this.onShow();
     this.setData({
@@ -206,6 +211,14 @@ Page({
       index: 2,
       selectedIconPath: app.globalData.color.iconSelect2
     })
+    wx.setTabBarItem({
+      index: 3,
+      selectedIconPath: app.globalData.color.iconSelect3
+    })
+    wx.setTabBarItem({
+      index: 4,
+      selectedIconPath: app.globalData.color.iconSelect4
+    })
 
     // 动态设置tabBar上的字体颜色
     wx.setTabBarStyle({
@@ -219,6 +232,8 @@ Page({
       iconSelect0: app.globalData.color.iconSelect0,
       iconSelect1: app.globalData.color.iconSelect1,
       iconSelect2: app.globalData.color.iconSelect2,
+      iconSelect3: app.globalData.color.iconSelect3,
+      iconSelect4: app.globalData.color.iconSelect4,
       str: app.globalData.color.str
     }
     // 存入缓存是为了实现 在用户选择了主体颜色之后，下次进入页面时，就默认显示用户之前设置的颜色
@@ -237,20 +252,20 @@ Page({
       case "默认":
         this.setColor(this.data.color.def,"(默认)");
         break;
-      case "千纸鹤":
-        this.setColor(this.data.color.red, "(千纸鹤)");
+      case "茶花红":
+        this.setColor(this.data.color.red, "(茶花红)");
         break;
-      case "南极星":
-        this.setColor(this.data.color.blue, "(南极星)");
+      case "冰川蓝":
+        this.setColor(this.data.color.blue, "(冰川蓝)");
         break;
       case "落樱粉":
         this.setColor(this.data.color.pink, "(落樱粉)");
         break;
       case "清新绿":
-        this.setColor(this.data.color.green, "(清新绿)");
+        this.setColor(this.data.color.cyan, "(清新绿)");
         break;
       case "温暖橙":
-        this.setColor(this.data.color.yellow, "(温暖橙)");
+        this.setColor(this.data.color.orange, "(温暖橙)");
         break;
       
     }
@@ -310,6 +325,14 @@ Page({
     wx.setTabBarItem({
       index: 2,
       selectedIconPath: app.globalData.color.iconSelect2
+    })
+    wx.setTabBarItem({
+      index: 3,
+      selectedIconPath: app.globalData.color.iconSelect3
+    })
+    wx.setTabBarItem({
+      index: 4,
+      selectedIconPath: app.globalData.color.iconSelect4
     })
 
     // 动态设置tabBar上的字体颜色

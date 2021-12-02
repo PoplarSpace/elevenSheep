@@ -1,4 +1,4 @@
-<!--pages/home/home.wxml-->
+<!-- pages/home/home.wxml -->
 <view class="head">
   <view class="sigle-container">
     <picker mode="date" fields="month" value="" bindchange='dateChange'>
@@ -10,16 +10,12 @@
     </picker>
   </view>
   <view class="sigle-container">
-    <view class="t">月支出(元)</view>
+    <view class="t">欲支出(元)</view>
     <view class="b">{{mExpend}}</view>
   </view>
   <view class="sigle-container">
-    <view class="t">月收入(元)</view>
+    <view class="t">已支出(元)</view>
     <view class="b">{{mIncome}}</view>
-  </view>
-  <view class="sigle-container">
-    <view class="t">月结余(元)</view>
-    <view class="b">{{mSurplus}}</view>
   </view>
 </view>
 <block wx:for="{{infor}}" wx:key="index" wx:for-index="idx" wx:for-item="item">
@@ -35,17 +31,17 @@
         </span>
       </view>
       <view>
-        <span wx:if="{{item.income}}">
+        <!-- <span wx:if="{{item.income}}">
           <text>收入：</text>
           <text>{{item.income}}</text>
-        </span>
+        </span> -->
         <span wx:if="{{item.expend}}">
-          <text>支出：</text>
+          <text>欲支出：</text>
           <text>{{item.expend}}</text>
         </span>
       </view>
     </view>
-    <block wx:for="{{item.num}}" wx:key="index" wx:for-index="numIdx" wx:for-item="numItem">
+    <block wx:for="{{recordList}}" wx:key="index" wx:for-index="numIdx" wx:for-item="numItem">
       <view class="record" data-recIdx='{{numIdx}}' data-dayIdx='{{idx}}' bindlongtap='delRecord'>
         <view class='sigle-record'>
           <image src="/pages/img/ZB.png"></image>
@@ -54,83 +50,28 @@
               <text>{{numItem.content}}</text>
             </span>
             <span wx:if="{{numItem.pay}}">
-              <text>-{{numItem.pay}}</text>
+              <text>{{numItem.pay}}$</text>
             </span>
-            <span wx:if="{{numItem.gain}}">
+            <!-- <span wx:if="{{numItem.gain}}">
               <text>+{{numItem.gain}}</text>
-            </span>
+            </span> -->
           </view>
+          <span class="reference">
+            <button class="expectation1" data-index="{{numIdx}}" bindtap="wishValueAdd" style="background-color: {{first}};">
+              期望值+1
+            </button>
+            <button class="demand" style="background-color: {{first}};">需求度</button>
+            <button class="expectation2" data-index="{{numIdx}}" bindtap="wishValueDetele" style="background-color: {{first}};">
+              期望值-1
+            </button>
+          </span>
+          <text class="see" bindtap="count">期望总值</text>
+          <span>
+            <text>{{numItem.wishValue}}</text>
+            <image src="../img/love.png" style="padding:0; width:50rpx; height:50rpx; "></image>
+          </span>
         </view>
       </view>
     </block>
-    <!-- <view class="record">
-      <view class='sigle-record'>
-        <image src="/pages/img/ZB.png"></image>
-        <view>
-          <span>
-            <text>衣服（买西装）</text>
-          </span>
-          <span>
-            <text>-600</text>
-          </span>
-        </view>
-      </view>
-    </view> -->
   </view>
 </block>
-<!-- <view class="account-book">
-  <view class="date">
-    <view>
-      <span><text>11-03</text></span>
-      <span>
-        <text>星期</text>
-        <text>二</text>
-      </span>
-    </view>
-    <view>
-      <span>
-        <text>支出：</text>
-        <text>240</text>
-      </span>
-    </view>
-  </view>
-  <view class="record">
-    <view class='sigle-record'>
-      <image src="/pages/img/ZB.png"></image>
-      <view>
-        <span>
-          <text>零食（买坚果）</text>
-        </span>
-        <span>
-          <text>-20</text>
-        </span>
-      </view>
-    </view>
-  </view>
-  <view class="record">
-    <view class='sigle-record'>
-      <image src="/pages/img/ZB.png"></image>
-      <view>
-        <span>
-          <text>打车</text>
-        </span>
-        <span>
-          <text>-20</text>
-        </span>
-      </view>
-    </view>
-  </view>
-  <view class="record">
-    <view class='sigle-record'>
-      <image src="/pages/img/ZB.png"></image>
-      <view>
-        <span>
-          <text>买药（感冒）</text>
-        </span>
-        <span>
-          <text>-20</text>
-        </span>
-      </view>
-    </view>
-  </view>
-</view> -->

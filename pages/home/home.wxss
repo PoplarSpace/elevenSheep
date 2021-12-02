@@ -43,9 +43,9 @@
   margin-left: 8rpx;
 }
 
-.account-book {
+/* .account-book {
   
-}
+} */
 
 .date {
   height: 40rpx;
@@ -66,15 +66,13 @@
 }
 
 .record {
-  /* padding: 10rpx 20rpx; */
   padding: 10rpx 0;
 }
 
 .sigle-record {
-  height: 76rpx;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between; */
+  height: 230rpx;
+  border-bottom: 1px solid #cecece;
+  padding-bottom: 20rpx;
 }
 
 .sigle-record image,
@@ -92,7 +90,6 @@
 .sigle-record view {
   width: 637rpx;
   padding-right: 25rpx;
-  border-bottom: 1px solid #cecece;
   vertical-align: middle;
 }
 
@@ -110,4 +107,36 @@
 
 .sigle-record view span text {
   line-height: 76rpx;
+}
+
+.reference{
+  display: flex !important;
+  flex-direction:row;
+  justify-content: space-around;
+  margin-top: 20rpx;
+}
+
+.demand{
+  color: #4f4f4f;
+  font-size: 35rpx;
+  width: 200rpx;
+  height: 100rpx;
+}
+
+.expectation1{
+  color: #4f4f4f;
+  font-size: 35rpx;
+  width: 200rpx;
+  height: 100rpx;
+}
+.expectation2{
+  color: #4f4f4f;
+  font-size: 35rpx;
+  width: 200rpx;
+  height: 100rpx;
+}
+
+.see{
+  padding-left:450rpx;
+  padding-right: 50rpx;
 }

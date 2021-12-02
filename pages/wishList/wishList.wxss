@@ -1,0 +1,91 @@
+/* page/wishList/wishList.wxss */
+.adding{
+  border: none;
+  width: 300rpx;
+  margin-left:430rpx;
+  margin-top:20rpx
+}
+.doing{
+  margin-top:50rpx;
+  
+}
+.doing image{
+  vertical-align: middle;
+}
+
+.doing text{
+  padding-left:30rpx;
+  font-size: 40rpx;
+  color: #707070;
+}
+.doing_part{
+  width: 80%;
+  height: 250rpx;
+  margin-top:35rpx;
+  margin-left:8%;
+  border-radius: 20rpx;
+}
+
+.doing_tip{
+  color: #707070;
+  font-size: 30rpx;
+  width: 120rpx;
+  height: 50rpx;
+  padding-top:10rpx;
+  padding-left:30rpx;
+  margin-left:454rpx;
+  border-radius: 0rpx 15rpx 0rpx 20rpx;
+}
+
+.dress{
+  margin-left:50rpx;
+}
+
+.doingPart{
+  display:flex;
+}
+
+.doingPartText{
+  display:flex;
+  flex-direction: column;
+}
+
+.doing button{
+  width: 100rpx;
+  font-size: 30rpx;
+  /* margin-left:480rpx; */
+}
+
+.doing_bottom{
+  display: flex;
+}
+
+.doing_bottom view{
+  width: 65%;
+  height: 10rpx;
+  margin-left: 10%;
+  margin-right: 6%;
+  margin-top: 30rpx;
+}
+
+.ending{
+  margin-top:100rpx;
+  
+}
+.ending image{
+  vertical-align: middle;
+}
+
+.ending text{
+  padding-left:30rpx;
+  font-size: 40rpx;
+  color: #707070;
+}
+
+.ending_part{
+  width: 80%;
+  height: 250rpx;
+  margin-top:35rpx;
+  margin-left:8%;
+  border-radius: 20rpx;
+}

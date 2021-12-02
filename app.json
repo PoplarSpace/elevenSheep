@@ -4,12 +4,13 @@
     "pages/me/me",
     "pages/home/home",
     "pages/add/addTip/addTip",
-    "pages/me/aboutMe/aboutMe"
-    
+    "pages/me/aboutMe/aboutMe",
+    "pages/wishList/wishList",
+    "pages/friend/friend"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarTitleText": "joy记账",
+    "navigationBarTitleText": "十一只羊",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
@@ -17,18 +18,28 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "账本",
-        "iconPath": "pages/img/accounts.png"
+        "text": "清单",
+        "iconPath": "./pages/img/灰/灰主页1.png"
+      },
+      {
+        "pagePath": "pages/wishList/wishList",
+        "text": "心愿",
+        "iconPath": "pages/img/灰/灰礼物1.png"
       },
       {
         "pagePath": "pages/add/add",
-        "text": "记账",
-        "iconPath": "pages/img/add.png"
+        "text": "添加",
+        "iconPath": "pages/img/灰/灰添加1.png"
+      },
+      {
+        "pagePath": "pages/friend/friend",
+        "text": "社区",
+        "iconPath": "pages/img/灰/灰社区1.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "pages/img/me.png"
+        "iconPath": "pages/img/灰/灰我的1.png"
       }
     ],
     "color": "#333"

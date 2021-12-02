@@ -1,9 +1,9 @@
 <!--pages/add/add.wxml-->
 <view class="inAndOut" style="background-color:{{first}}">
-  <button style="background-color: {{isActive?second:first}};color:{{isActive?first:second}};border:1px solid {{second}}" bindtap='oBtn' class="out">支出</button>
-  <button style="background-color: {{isActive?first:second}};color:{{isActive?second:first}};border:1px solid {{second}}" bindtap='iBtn' class="in">收入</button>
 </view>
-
+<view class="addImage" style="background-color:{{first}}">
+<image class="addImage1" src="../img/add_write.png" style="width: 200rpx; height: 170rpx;"></image>
+</view>
 <scroll-view scroll-y="true" class="scroll-container">
   <view class="tipBox">
     <block wx:for="{{isActive?outData:inData}}" wx:item="item" wx:key="index">
@@ -12,18 +12,6 @@
     <text style="background-color:{{first}};color:{{second}}" class="addTip" bindtap='addTips'>+</text>
   </view>
 </scroll-view>
-
-<!-- <view class="tipBox">
-  <block wx:if="{{isActive}}" wx:for="{{outData}}" wx:item="item" wx:key="index">
-    <button class="tip">{{item}}</button>
-  </block>
-</view>
-
-<view class="tipBox">
-  <block wx:if="{{!isActive}}" wx:for="{{inData}}" wx:item="item" wx:key="index">
-    <button class="tip">{{item}}</button>
-  </block>
-</view> -->
  
 <view class="bottomContainer">
   <form bindsubmit="formSubmit">
@@ -40,8 +28,8 @@
       </view>
     </view>
 
-    <view class='remark' style="background-color:{{second}}">
-      <input name="recordRemark" type="text" placeholder='添加备注'></input>
+    <view class='remark'>
+      <input name="recordRemark" type="text" placeholder='添加商品描述'></input>
     </view>
 
     <view class="sure">
@@ -49,8 +37,4 @@
     </view>
 
   </form>
-
-  <!-- <view class="sure">
-    <button style="background-color:{{first}};color:{{second}}" bindtap='clear'>清除账目</button>
-  </view> -->
 </view>

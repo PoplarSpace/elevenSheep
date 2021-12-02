@@ -7,86 +7,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // date: "1998-09"
-    year:"",
-    month:"",
+    year: "",
+    month: "",
 
-    mIncome:0,
-    mExpend:0,
-    mSurplus:0,
+    mIncome: 0,
+    mExpend: 0,
+    mSurplus: 0,
+    cnt1: 0,
+    cnt2: 0,
+    cnt: 0,
+    counter: 0,
 
     infor: [],
     // 主题色
     first: app.globalData.color.first,
-    second: app.globalData.color.second
-    
-  // infor: [
-    //   {
-    //     date: '07-15',
-    //     week: '一',
-    //     income: 0,
-    //     expend: 0,
-    //     num: [
-    //       {
-    //         content: '吃苹果',
-    //         pay: 80,
-    //         gain:0
-    //       },
-    //       {
-    //         content: '火龙果',
-    //         pay: 50,
-    //         gain: 0
-    //       },
-    //       {
-    //         content: '发工资',
-    //         pay:0,
-    //         gain: 10000
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     date: '07-16',
-    //     week: '二',
-    //     income: 0,
-    //     expend: 0,
-    //     num: [
-    //       {
-    //         content: '吃苹果',
-    //         pay: 1000,
-    //         gain: 0
-    //       },
-    //       {
-    //         content: '火龙果',
-    //         pay: 500,
-    //         gain: 0
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     date: '07-17',
-    //     week: '三',
-    //     income: 0,
-    //     expend: 0,
-    //     num: [
-    //       {
-    //         content: '发工资',
-    //         pay: 0,
-    //         gain: 10000
-    //       }
-    //     ]
-    //   },
-  // ],
+    second: app.globalData.color.second,
+    // 记账数据
+    recordList: [],
 
   },
 
   // 改变首页上的日期时，改变对应的年月，并存入本地数据中
-  dateChange:function(event) {
+  dateChange: function (event) {
     // console.log(event.detail.value);
     var dateStr = event.detail.value;
     var arr = dateStr.split("-");
     this.setData({
-      year:arr[0],
-      month:arr[1]
+      year: arr[0],
+      month: arr[1]
     })
 
     var data = wx.getStorageSync("recordJson");
@@ -100,32 +48,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.removeStorageSync("tipOut");
-    // wx.removeStorageSync("tipIn");
-
-    // var year = this.data.date.split("-")[0];
-    // this.setData({
-    //   year:year
-    // })
-
     // 获取当前时间的年和月，日期和月份的获取方法类似
     var currentDate = new Date();
     var year = currentDate.getFullYear();
     var month = (currentDate.getMonth() + 1 < 10 ? '0' + (currentDate.getMonth() + 1) : currentDate.getMonth() + 1);
     this.setData({
-      year:year,
-      month:month
+      year: year,
+      month: month
     })
 
     this.caclMoney();
 
-    // app.globalData.recordData = {};
 
   },
 
   // 获取 收入 和 支出，计算每天的收入/支出，以及每月的收入/支出
-  caclMoney:function(){
-    
+  caclMoney: function () {
+
     var emIncome = 0;
     var emExpend = 0;
     var emSurplus = 0;
@@ -140,9 +79,6 @@ Page({
 
       for (var j = 0; j < this.data.infor[i].num.length; j++) {
 
-        // console.log(this.data.infor[i].num[j].gain);
-        // console.log(this.data.infor[i].num[j].pay);
-
         if (this.data.infor[i].num[j].gain != 0) {
           var gain = Number(this.data.infor[i].num[j].gain);
           edIncome += gain;
@@ -153,17 +89,10 @@ Page({
         }
 
       }
-
-      // console.log(edIncome);
-      // console.log(edExpend);
-
       this.setData({
         [strIncome]: edIncome,
         [strExpend]: edExpend
       })
-
-      // console.log(this.data.infor[i].income);
-      // console.log(this.data.infor[i].expend);
 
       emIncome += this.data.infor[i].income;
       emExpend += this.data.infor[i].expend;
@@ -180,12 +109,11 @@ Page({
 
   // 从缓存中取出用户添加的数据，并得到对应年月的数据
   // 并对日期进行排序
-  getData:function(data,year,month){
-    for(var i=0;i<data.length;i++){
-      if (Number(data[i].value) == Number(year)){
-        for(var j=0;j<data[i].data.length;j++){
-          if (Number(data[i].data[j].value) == Number(month)){
-            // console.log("getData中的月是：" + data[i].data[j].value);
+  getData: function (data, year, month) {
+    for (var i = 0; i < data.length; i++) {
+      if (Number(data[i].value) == Number(year)) {
+        for (var j = 0; j < data[i].data.length; j++) {
+          if (Number(data[i].data[j].value) == Number(month)) {
             return data[i].data[j].data;
           }
         }
@@ -194,7 +122,7 @@ Page({
   },
 
   // 判断年份是否是闰年
-  isLeap:function(year){
+  isLeap: function (year) {
     if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
       return true;
     }
@@ -205,7 +133,7 @@ Page({
   },
 
   // 判断某年某月某日是星期几
-  whatDay:function(year, month, day){
+  whatDay: function (year, month, day) {
     var monthDay = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     var sum = 0;
     //公元元年（也就是第一年）的第一天是星期1，以后的每一年与元年的差值取模7就可以算出该年的第一天是星期几。
@@ -225,29 +153,24 @@ Page({
   },
 
   // 处理从缓存中得到的数据
-  processData:function(data){
+  processData: function (data) {
     if (data) {
       // 得到当前这个月的所有的数据
-      var recordData = this.getData(data,this.data.year,this.data.month);
+      var recordData = this.getData(data, this.data.year, this.data.month);
       // console.log("processData中的数据是：",recordData);
       // 代表整个月的数组
       var infor = [];
-      // if (!this.data.infor){
-      //   infor = this.data.infor;
-      // }
 
-      
       var week = '';
-      // var dateArr = recordData.recordDate.split("-");
       var year = Number(this.data.year);
       var month = Number(this.data.month);
-      
+
       // 判断 所选月的数据是否为空
-      if(recordData){
+      if (recordData) {
 
         // 将所选月的数据按照日期从大到小排列出来
         for (var i = 0; i < recordData.length; i++) {
-          for (var j = i+1; j < recordData.length;j++){
+          for (var j = i + 1; j < recordData.length; j++) {
             if (recordData[i].value < recordData[j].value) {
               var a = recordData[i];
               recordData[i] = recordData[j];
@@ -303,12 +226,8 @@ Page({
 
           // 代表每一天中 的 每一条记录 的数组
           var num = [];
-          // if (!this.data.infor && !this.data.infor[i].num){
-          //   num = this.data.infor[i].num;
-          // }
 
-          // console.log(recordData[i].data);
-          if(recordData[i].data.length){
+          if (recordData[i].data.length) {
             // 循环遍历 这一天 的所有记录
             for (var j = 0; j < recordData[i].data.length; j++) {
               // 临时存储 “每一条记录” 的对象
@@ -319,6 +238,7 @@ Page({
               };
               var pay = 0;
               var gain = 0;
+              let wishValue = recordData[i].data[j].wishValue;
               // 判断是 收入 还是 支出
               if (recordData[i].data[j].isActive) {
                 pay = recordData[i].data[j].recordMoney;
@@ -333,16 +253,13 @@ Page({
               else {
                 var content = recordData[i].data[j].recordContent;
               }
-              // console.log(content);
-              // console.log(num);
 
               // 把得到的 某一天 的 某条数据 push 到 num 数组中
               numObj.content = content;
-              // console.log(content);
               numObj.gain = gain;
               numObj.pay = pay;
+              numObj.wishValue = wishValue;
               num.push(numObj);
-              // console.log(num);
 
             }
 
@@ -350,18 +267,9 @@ Page({
             inforObj.date = date;
             inforObj.week = week;
             inforObj.num = num;
+            console.log(infor)
             infor.push(inforObj);
           }
-          
-
-          // console.log(num);
-
-          // // 把得到的 当前月 的 所有天 的 所有数据 push 到 infor 数组中
-          // inforObj.date = date;
-          // inforObj.week = week;
-          // inforObj.num = num;
-          // infor.push(inforObj);
-
         }
       }
 
@@ -369,21 +277,18 @@ Page({
         mIncome: 0,
         mExpend: 0,
         mSurplus: 0,
-        infor: infor
+        infor: infor,
+        recordList: num
       })
-      
-      // console.log(this.data.infor);
     }
   },
 
   // 长按删除某条记录
   delRecord: function (event) {
-    // console.log(event);
-    // console.log(this.data);
     var that = this;
     wx.showModal({
       title: '删除记录',
-      content: '确定删除"' + that.data.infor[event.currentTarget.dataset.dayidx].date+'"的"'+ that.data.infor[event.currentTarget.dataset.dayidx].num[event.currentTarget.dataset.recidx].content +'"这条记录吗？',
+      content: '确定删除"' + that.data.infor[event.currentTarget.dataset.dayidx].date + '"的"' + that.data.infor[event.currentTarget.dataset.dayidx].num[event.currentTarget.dataset.recidx].content + '"这条记录吗？',
       success(res) {
         if (res.confirm) {
           var date = that.data.infor[event.currentTarget.dataset.dayidx].date;
@@ -392,12 +297,12 @@ Page({
           var day = date.split("-")[1];
           var record = that.data.infor[event.currentTarget.dataset.dayidx].num[event.currentTarget.dataset.recidx];
           var recordData = wx.getStorageSync("recordJson");
-          for (var i = 0; i < recordData.length;i++){
-            if (Number(recordData[i].value) == Number(year)){
-              for(var j = 0;j<recordData[i].data.length;j++){
-                if (Number(recordData[i].data[j].value) == Number(month)){
-                  for (var k = 0; k < recordData[i].data[j].data.length;k++){
-                    if (Number(recordData[i].data[j].data[k].value) == Number(day)){
+          for (var i = 0; i < recordData.length; i++) {
+            if (Number(recordData[i].value) == Number(year)) {
+              for (var j = 0; j < recordData[i].data.length; j++) {
+                if (Number(recordData[i].data[j].value) == Number(month)) {
+                  for (var k = 0; k < recordData[i].data[j].data.length; k++) {
+                    if (Number(recordData[i].data[j].data[k].value) == Number(day)) {
                       // splice(index,len,[item])    注释：该方法会改变原始数组。
                       // index:数组开始下标        len: 替换/删除的长度       item:替换的值，删除操作的话 item为空
                       recordData[i].data[j].data[k].data.splice(event.currentTarget.dataset.recidx, 1);
@@ -407,7 +312,7 @@ Page({
               }
             }
           }
-          
+
           wx.setStorageSync("recordJson", recordData);
           wx.showToast({
             title: '删除成功',
@@ -459,6 +364,14 @@ Page({
       index: 2,
       selectedIconPath: app.globalData.color.iconSelect2
     })
+    wx.setTabBarItem({
+      index: 3,
+      selectedIconPath: app.globalData.color.iconSelect3
+    })
+    wx.setTabBarItem({
+      index: 4,
+      selectedIconPath: app.globalData.color.iconSelect4
+    })
 
     // 动态设置tabBar上的字体颜色
     wx.setTabBarStyle({
@@ -472,10 +385,10 @@ Page({
     // console.log("onshow缓存中的数据是：" ,data);
 
     this.processData(data);
-    // console.log(this.data.infor);
+    console.log(this.data.infor);
 
     this.caclMoney();
-    
+
   },
 
   /**
@@ -511,5 +424,48 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  updateLocalData: function () {
+
+  },
+  //期望值+1
+  wishValueAdd: function (event) {
+    console.log(event.currentTarget.dataset.index);
+    let localData = wx.getStorageSync("recordJson")
+    // 修改本地数据
+    localData[0].data[0].data[0].data[event.currentTarget.dataset.index].wishValue = this.data.recordList[event.currentTarget.dataset.index].wishValue + 1
+    wx.setStorageSync("recordJson", localData);
+    //修改当前页面
+    this.setData({
+      recordList: this.data.recordList.map((e, index) => {
+        if (index == event.currentTarget.dataset.index) {
+          e.wishValue = e.wishValue + 1
+        }
+        return e
+      })
+    })
+  },
+  //期望值-1
+  wishValueDetele: function (event) {
+    console.log(event.currentTarget.dataset.index);
+    let localData = wx.getStorageSync("recordJson")
+    // 修改本地数据
+    localData[0].data[0].data[0].data[event.currentTarget.dataset.index].wishValue = this.data.recordList[event.currentTarget.dataset.index].wishValue - 1
+    wx.setStorageSync("recordJson", localData);
+    this.setData({
+      recordList: this.data.recordList.map((e, index) => {
+        if (index == event.currentTarget.dataset.index) {
+          e.wishValue = e.wishValue - 1
+        }
+        return e
+      })
+    })
+  },
+//计算期望总值
+  count: function () {
+    this.data.cnt = this.data.cnt1 + this.data.cnt2,
+      console.log('期望值：' + this.data.cnt);
+    this.setData({ counter: this.data.cnt })
+  },
 })
+

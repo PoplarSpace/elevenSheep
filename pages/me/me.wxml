@@ -5,7 +5,7 @@
     <image wx:if="{{nameShow}}" class='avator' src="{{userInfo.avatarUrl}}"></image> 
   </view>
   <view class="name-container">
-    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" style='border: 2px solid {{first}}' wx:if="{{!nameShow}}" class='login' bindtap='loginInTap'>登录</button>
+    <button bindtap="getUserInfo" style='border: 2px solid {{first}}' wx:if="{{!nameShow}}" class='login' bindtap='loginInTap'>登录</button>
     <text wx:if="{{nameShow}}" class='user-name'>{{userInfo.nickName}}欢迎你~</text>
   </view>
 </view>
@@ -16,8 +16,8 @@
     <text>设置主题颜色{{settingColor}}</text>
     <view wx:if="{{selected}}" class="select-box">
       <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='默认'>默认</view>
-      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='千纸鹤'>千纸鹤</view>
-      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='南极星'>南极星</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='茶花红'>茶花红</view>
+      <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='冰川蓝'>冰川蓝</view>
       <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='落樱粉'>落樱粉</view>
       <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='清新绿'>清新绿</view>
       <view style="background-color:{{second}};border-bottom: 1px solid {{first}};" class="select-one" catchtap='mySelected' data-color='温暖橙'>温暖橙</view>
@@ -30,7 +30,7 @@
   </view>
   <view bindtap='showJoy' class='setting' style="background-color:{{second}}">
     <view></view>
-    <text>关于joy记账</text>
+    <text>关于十一只羊</text>
   </view>
   <view class='setting' style="background-color:{{second}}">
     <view></view>

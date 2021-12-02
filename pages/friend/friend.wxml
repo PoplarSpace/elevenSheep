@@ -1,0 +1,4 @@
+<!--pages/friend/friend.wxml-->
+<view>
+<text>社区还未开放，请等待...</text>
+</view>
