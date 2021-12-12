@@ -4,20 +4,17 @@
 
 ## 主页页面
 
-
 ![](https://s2.loli.net/2021/12/12/ALoYthsxdb5Or6M.png)
 
 
 ## 心愿页面
 
-<img src="./result/test02.png" width="375" />
+![](https://s2.loli.net/2021/12/12/D4BuIXhVM7oFP9U.png)
 
 ## 添加页面
 
-<img src="./result/test03.png" width="375" />
+![](https://s2.loli.net/2021/12/12/2CqQFZOU6oHJDvt.png)
 
 ## “我的”页面
 
-
-<img src="./result/test04.png" width="375" />
-
+![](https://s2.loli.net/2021/12/12/R8Ul3B6EyAnhVzI.png)
