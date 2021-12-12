@@ -5,6 +5,8 @@
 ## 主页页面
 
 <img src="./result/test01.png" width="375" />
+![image](https://user-images.githubusercontent.com/79148879/145703035-a7cc6de6-29e7-4b66-ad4b-65b9714d40c5.png)
+
 
 ## 心愿页面
 
